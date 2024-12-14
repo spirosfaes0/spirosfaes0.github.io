@@ -111,29 +111,44 @@
           no-repeat center center;
         background-size: cover;
         padding-top: 8rem;
-        margin-bottom: 20px;
+        z-index: 1; /* Ensure main section is behind the search section */
       }
 
       /* About Section */
       .about {
-        position: absolute;
         font-size: 4vw; /* Increase font size here */
-        bottom: 3rem;
-        left: 2rem;
         color: #fff;
         padding: 1.5rem;
         border-radius: 8px;
+        display: flex;
+        flex-direction: column;
         max-width: 400px;
         line-height: 1.4; /* Adjust line height for spacing */
+        position: absolute; /* Ensure it's positioned absolutely */
+        bottom: 3rem; /* Align to the bottom */
+        left: 2rem; /* Align to the left */
+      }
+
+      .about p {
+        margin-bottom: 0.5rem; /* Add margin between sentences */
+        animation: fadeInLeft 2.3s ease-in-out;
+        width: 100%;
       }
 
       .about span {
         display: block; /* Ensures the second sentence starts on a new line */
         margin-top: 0.5rem; /* Adds space between the first and second sentence */
-        text-indent: 1rem; /* Indentation for the second sentence */
-        margin-left: 2rem; /* Move the span to the right */
+        text-indent: 0; /* Remove indentation */
+        margin-left: 5vw; /* Remove left margin */
         font-size: 4.5vw;
+        animation: fadeInRight 2.3s ease-in-out;
       }
+
+      .about::after {
+        content: '';
+        display: none; /* Hide the line */
+      }
+
       @keyframes fadeInLeft {
         from {
           opacity: 0;
@@ -154,14 +169,6 @@
           opacity: 1;
           transform: translateX(0);
         }
-      }
-
-      .about p {
-        animation: fadeInLeft 2.3s ease-in-out;
-      }
-
-      .about span {
-        animation: fadeInRight 2.3s ease-in-out;
       }
 
       /* Appointment Section */
@@ -559,6 +566,91 @@
       .hidden {
         display: none;
       }
+
+      .search-section {
+        background: rgb(158,162,197);
+        background: linear-gradient(180deg, rgba(158,162,197,1) 0%, rgba(117,107,142,1) 0%, rgba(54,84,110,1) 1%);
+        padding: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        height: 550px;
+      }
+
+      .search-bar {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        background-color: #fff;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+      }
+
+      .search-bar input,
+      .search-bar select {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        font-size: 1rem;
+        outline: none;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+      }
+
+      .search-bar button {
+        padding: 1rem;
+        background-color: #d4a441;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        border-radius: 5px;
+      }
+
+      .search-bar button:hover {
+        background-color: #b38a35;
+      }
+
+      .search-bar .search-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .search-bar .search-options select {
+        flex: 1;
+        min-width: calc(50% - 1rem);
+      }
+
+      .search-bar .search-options input {
+        flex: 1;
+        min-width: calc(50% - 1rem);
+      }
+
+      .search-bar .search-info {
+        margin-top: 1rem;
+        text-align: center;
+        color: #333;
+      }
+
+      .search-text {
+        width: 50%;
+        color: #fff;
+        font-size: 1.5rem;
+        line-height: 1.8;
+        opacity: 0;
+        transform: translateX(-100px);
+        transition: opacity 2.1s ease-in-out, transform 2.1s ease-in-out;
+      }
+
+      .search-section.scrolled .search-text {
+        opacity: 1;
+        transform: translateX(0);
+      }
     </style>
   </head>
   <body>
@@ -594,38 +686,37 @@
         </p>
       </div>
     </main>
-
     <!-- Gallery Section -->
     <section class="gallery">
       <h2>Te Koop</h2>
       <div class="gallery-item">
-        <img src="./pictures/Gallery/fotoExtr3.jpg" alt="Modern Designs" />
+        <img src="./pictures/gallery/fotoExtr3.jpg" alt="Modern Designs" />
         <p>Modern Designs</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/roberto-nickson-rEJxpBskj3Q-unsplash.jpg"
+          src="./pictures/gallery/roberto-nickson-rEJxpBskj3Q-unsplash.jpg"
           alt="State-of-the-Art Homes"
         />
         <p>State-of-the-Art Homes</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/rhema-kallianpur-jbJ-_hw2yag-unsplash.jpg"
+          src="./pictures/gallery/rhema-kallianpur-jbJ-_hw2yag-unsplash.jpg"
           alt="Elegant Interiors"
         />
         <p>Elegant Interiors</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/armin-djuhic-mcL2f-J74GY-unsplash.jpg"
+          src="./pictures/gallery/armin-djuhic-mcL2f-J74GY-unsplash.jpg"
           alt="Sustainable Living"
         />
         <p>Sustainable Living</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/andrea-davis-zOPRKaYLSdE-unsplash.jpg"
+          src="./pictures/gallery/andrea-davis-zOPRKaYLSdE-unsplash.jpg"
           alt="Innovative Spaces"
         />
         <p>Innovative Spaces</p>
@@ -669,6 +760,36 @@
         <p>Innovative Spaces</p>
       </div>
     </section>
+        <!-- Search Section -->
+        <section class="search-section">
+          <div class="search-text">
+            <h2>Wonen begint hier</h2>
+            <p>Gebruik onze uitgebreide zoekopties om het perfecte huis te vinden in uw gewenste gemeente of postcode.</p>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="Zoek naar een huis in gemeente of postcode..." />
+            <div class="search-options">
+              <select>
+                <option value="">Type</option>
+                <option value="buy">Koop</option>
+                <option value="rent">Huur</option>
+              </select>
+              <select>
+                <option value="">Prijs</option>
+                <option value="0-100000">0 - 100,000</option>
+                <option value="100000-200000">100,000 - 200,000</option>
+                <option value="200000-300000">200,000 - 300,000</option>
+                <option value="300000+">300,000+</option>
+              </select>
+              <input type="text" placeholder="Locatie" />
+              <input type="number" placeholder="Slaapkamers" min="1" />
+            </div>
+            <button type="button">Zoeken</button>
+            <div class="search-info">
+              <p>Vind uw droomhuis met onze uitgebreide zoekopties.</p>
+            </div>
+          </div>
+        </section>
     <!-- Why Choose Us Section -->
     <section class="why-choose-us">
       <h2>Waarom Voor Ons Kiezen?</h2>
@@ -718,7 +839,7 @@
     <!-- Appointment Section -->
     <section class="appointment">
       <div class="left-side">
-        <h2>MAAK AFSPRAAK</h2>
+        <h2>MAAK EEN AFSPRAAK</h2>
         <p>Vul al je gegevens in voor een afspraak te maken</p>
         <div class="contact-icons">
           <a href="#"><img src="./pictures/Icons/phone.png" alt="Phone"></a>
@@ -756,6 +877,22 @@
           section.classList.add('scrolled');
         } else {
           section.classList.remove('scrolled');
+        }
+
+        const aboutSection = document.querySelector('.about');
+        const aboutRect = aboutSection.getBoundingClientRect();
+        if (aboutRect.top <= window.innerHeight && aboutRect.bottom >= 0) {
+          aboutSection.classList.add('scrolled');
+        } else {
+          aboutSection.classList.remove('scrolled');
+        }
+
+        const searchSection = document.querySelector('.search-section');
+        const searchRect = searchSection.getBoundingClientRect();
+        if (searchRect.top <= window.innerHeight && searchRect.bottom >= 0) {
+          searchSection.classList.add('scrolled');
+        } else {
+          searchSection.classList.remove('scrolled');
         }
       });
     </script>
