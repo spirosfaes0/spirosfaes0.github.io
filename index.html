@@ -72,13 +72,6 @@
         transform: translateX(-50%);
       }
 
-      header h1 {
-        font-size: 2.5rem;
-        color: white;
-        text-align: center;
-        margin-left: 10px;
-      }
-
       /* Navigation Menu */
       nav {
         display: flex;
@@ -127,6 +120,8 @@
         position: absolute; /* Ensure it's positioned absolutely */
         bottom: 3rem; /* Align to the bottom */
         left: 2rem; /* Align to the left */
+        opacity: 0; /* Initially hidden */
+        transition: opacity 2.3s ease-in-out; /* Add transition for opacity */
       }
 
       .about p {
@@ -568,8 +563,7 @@
       }
 
       .search-section {
-        background: rgb(158,162,197);
-        background: linear-gradient(180deg, rgba(158,162,197,1) 0%, rgba(117,107,142,1) 0%, rgba(54,84,110,1) 1%);
+        background: #303948;
         padding: 2rem;
         display: flex;
         justify-content: space-between;
@@ -644,7 +638,7 @@
         line-height: 1.8;
         opacity: 0;
         transform: translateX(-100px);
-        transition: opacity 2.1s ease-in-out, transform 2.1s ease-in-out;
+        transition: opacity 2.6s ease-in-out, transform 2.6s ease-in-out;
       }
 
       .search-section.scrolled .search-text {
@@ -654,68 +648,50 @@
 
       /* Buy-Rent Section */
       .buy-rent {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2rem;
-        margin: 1rem auto; /* Adjusted top margin */
-      }
-
-      .buy-rent-item {
         position: relative;
-        width: 45%;
-        height: 600px;
+        width: 100%;
+        height: 750px;
         overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
       }
 
-      .buy-rent-item img {
+      .buy-rent img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
 
-      .buy-rent-item button {
-        width: 100%;
-        padding: 1rem;
-        background-color: #000;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s, content 0.3s;
-        border-radius: 0 0 10px 10px;
-        margin-top: auto;
-        position: relative;
-      }
-
-      .buy-rent-item button::after {
-        content: attr(data-hover-text);
+      .text {
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        opacity: 0;
-        transition: opacity 0.3s;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .cylinder-button {
+        border-radius: 50px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #d4a441;
+        color: white;
+        cursor: pointer;
+        font-size: 25px;
+        margin: 5px;
+        text-decoration: none; /* Ensure links have no underline */
+        display: inline-block; /* Ensure links are displayed as buttons */
       }
 
-      .buy-rent-item button:hover::after {
-        opacity: 1;
+      .cylinder-button:hover {
+        background-color: #b38a35;
       }
 
-      .buy-rent-item button:hover {
-        background-color: #333;
-      }
-
-      .buy-rent-item button span {
-        opacity: 1;
-        transition: opacity 0.3s;
-      }
-
-      .buy-rent-item button:hover span {
-        opacity: 0;
+      .buy-rent-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
       }
     </style>
   </head>
@@ -735,15 +711,15 @@
         <h1></h1>
       </header>
       <nav>
-        <a href="#" aria-label="Contact">Contact</a>
-        <a href="#" aria-label="Te Koop">Te Koop</a>
-        <a href="#" aria-label="Te Huur">Te Huur</a>
-        <a href="#" aria-label="Home">Home</a>
+        <a href="#appointment" aria-label="Contact">Contact</a>
+        <a href="teKoop.html" aria-label="Te Koop">Te Koop</a>
+        <a href="teKoop.html" aria-label="Te Huur">Te Huur</a>
+        <a href="#bovenstedeel" aria-label="Home">Home</a>
       </nav>
     </div>
 
     <!-- Main Section -->
-    <main>
+    <main id="bovenstedeel">
       <div class="about">
         <p>
           Transparant in vastgoed,<span class="second-sentence"
@@ -756,33 +732,33 @@
     <section class="gallery">
       <h2>Te Koop</h2>
       <div class="gallery-item">
-        <img src="./pictures/Gallery/fotoExtr3.jpg" alt="Modern Designs" />
+        <img src="./pictures/gallery/fotoExtr3.jpg" alt="Modern Designs" />
         <p>Modern Designs</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/roberto-nickson-rEJxpBskj3Q-unsplash.jpg"
+          src="./pictures/gallery/roberto-nickson-rEJxpBskj3Q-unsplash.jpg"
           alt="State-of-the-Art Homes"
         />
         <p>State-of-the-Art Homes</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/rhema-kallianpur-jbJ-_hw2yag-unsplash.jpg"
+          src="./pictures/gallery/rhema-kallianpur-jbJ-_hw2yag-unsplash.jpg"
           alt="Elegant Interiors"
         />
         <p>Elegant Interiors</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/armin-djuhic-mcL2f-J74GY-unsplash.jpg"
+          src="./pictures/gallery/armin-djuhic-mcL2f-J74GY-unsplash.jpg"
           alt="Sustainable Living"
         />
         <p>Sustainable Living</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/andrea-davis-zOPRKaYLSdE-unsplash.jpg"
+          src="./pictures/gallery/andrea-davis-zOPRKaYLSdE-unsplash.jpg"
           alt="Innovative Spaces"
         />
         <p>Innovative Spaces</p>
@@ -827,46 +803,49 @@
       </div>
     </section>
     <!-- Buy-Rent-Section -->
-     <section class="buy-rent">
-    <div class="buy-rent-item">
-      <img src="./pictures/Buy-Rent/benjamin-elliott-uLw_xhpDjsM-unsplash.jpg" alt="Buy">
-      <button type="button" data-hover-text="Ik wil kopen"><span>Koop</span></button>
-    </div>
-    <div class="buy-rent-item">
-      <img src="./pictures/Buy-Rent/joel-filipe-RFDP7_80v5A-unsplash.jpg" alt="Rent">
-      <button type="button" data-hover-text="Ik wil huren"><span>Huur</span></button>
-    </div>
-  </section>
-        <!-- Search Section -->
-        <section class="search-section">
-          <div class="search-text">
-            <h2>Wonen begint hier</h2>
-            <p>Gebruik onze uitgebreide zoekopties om het perfecte huis te vinden in uw gewenste gemeente of postcode.</p>
-          </div>
-          <div class="search-bar">
-            <input type="text" placeholder="Zoek naar een huis in gemeente of postcode..." />
-            <div class="search-options">
-              <select>
-                <option value="">Type</option>
-                <option value="buy">Koop</option>
-                <option value="rent">Huur</option>
-              </select>
-              <select>
-                <option value="">Prijs</option>
-                <option value="0-100000">0 - 100,000</option>
-                <option value="100000-200000">100,000 - 200,000</option>
-                <option value="200000-300000">200,000 - 300,000</option>
-                <option value="300000+">300,000+</option>
-              </select>
-              <input type="text" placeholder="Locatie" />
-              <input type="number" placeholder="Slaapkamers" min="1" />
-            </div>
-            <button type="button">Zoeken</button>
-            <div class="search-info">
-              <p>Vind uw droomhuis met onze uitgebreide zoekopties.</p>
-            </div>
-          </div>
-        </section>
+    <section class="buy-rent">
+      <img src="./pictures/Buy-Rent/luca-bravo-_QdFx92MO2U-unsplash.jpg" alt="Buy-Rent Image">
+      <div class="text">Kies jouw optie: kopen of huren.
+        <div class="buy-rent-buttons">
+          <a href="teKoop.html">
+            <button class="cylinder-button">Kopen</button>
+          </a>
+          <a href="teKoop.html">
+            <button class="cylinder-button">Huren</button>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Search Section -->
+    <section class="search-section">
+      <div class="search-text">
+        <h2>Wonen begint hier</h2>
+        <p>Gebruik onze uitgebreide zoekopties om het perfecte huis te vinden in uw gewenste gemeente of postcode.</p>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Zoek naar een huis in gemeente of postcode..." />
+        <div class="search-options">
+          <select>
+            <option value="">Type</option>
+            <option value="buy">Koop</option>
+            <option value="rent">Huur</option>
+          </select>
+          <select>
+            <option value="">Prijs</option>
+            <option value="0-100000">0 - 100,000</option>
+            <option value="100000-200000">100,000 - 200,000</option>
+            <option value="200000-300000">200,000 - 300,000</option>
+            <option value="300000+">300,000+</option>
+          </select>
+          <input type="text" placeholder="Locatie" />
+          <input type="number" placeholder="Slaapkamers" min="1" />
+        </div>
+        <button type="button">Zoeken</button>
+        <div class="search-info">
+          <p>Vind uw droomhuis met onze uitgebreide zoekopties.</p>
+        </div>
+      </div>
+    </section>
     <!-- Why Choose Us Section -->
     <section class="why-choose-us">
       <h2>Waarom Voor Ons Kiezen?</h2>
@@ -914,7 +893,7 @@
     </section>
 
     <!-- Appointment Section -->
-    <section class="appointment">
+    <section class="appointment" id="appointment">
       <div class="left-side">
         <h2>MAAK EEN AFSPRAAK</h2>
         <p>Vul al je gegevens in voor een afspraak te maken</p>
@@ -945,6 +924,7 @@
     <script>
       window.addEventListener('load', function() {
         document.querySelector('.preloader').classList.add('hidden');
+        document.querySelector('.about').style.opacity = '1'; // Show the about section once the page is loaded
       });
 
       window.addEventListener('scroll', function() {
@@ -954,14 +934,6 @@
           section.classList.add('scrolled');
         } else {
           section.classList.remove('scrolled');
-        }
-
-        const aboutSection = document.querySelector('.about');
-        const aboutRect = aboutSection.getBoundingClientRect();
-        if (aboutRect.top <= window.innerHeight && aboutRect.bottom >= 0) {
-          aboutSection.classList.add('scrolled');
-        } else {
-          aboutSection.classList.remove('scrolled');
         }
 
         const searchSection = document.querySelector('.search-section');
