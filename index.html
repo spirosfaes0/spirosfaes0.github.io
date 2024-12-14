@@ -651,6 +651,72 @@
         opacity: 1;
         transform: translateX(0);
       }
+
+      /* Buy-Rent Section */
+      .buy-rent {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        margin: 1rem auto; /* Adjusted top margin */
+      }
+
+      .buy-rent-item {
+        position: relative;
+        width: 45%;
+        height: 600px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .buy-rent-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .buy-rent-item button {
+        width: 100%;
+        padding: 1rem;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, content 0.3s;
+        border-radius: 0 0 10px 10px;
+        margin-top: auto;
+        position: relative;
+      }
+
+      .buy-rent-item button::after {
+        content: attr(data-hover-text);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .buy-rent-item button:hover::after {
+        opacity: 1;
+      }
+
+      .buy-rent-item button:hover {
+        background-color: #333;
+      }
+
+      .buy-rent-item button span {
+        opacity: 1;
+        transition: opacity 0.3s;
+      }
+
+      .buy-rent-item button:hover span {
+        opacity: 0;
+      }
     </style>
   </head>
   <body>
@@ -760,6 +826,17 @@
         <p>Innovative Spaces</p>
       </div>
     </section>
+    <!-- Buy-Rent-Section -->
+     <section class="buy-rent">
+    <div class="buy-rent-item">
+      <img src="./pictures/Buy-Rent/benjamin-elliott-uLw_xhpDjsM-unsplash.jpg" alt="Buy">
+      <button type="button" data-hover-text="Ik wil kopen"><span>Koop</span></button>
+    </div>
+    <div class="buy-rent-item">
+      <img src="./pictures/Buy-Rent/joel-filipe-RFDP7_80v5A-unsplash.jpg" alt="Rent">
+      <button type="button" data-hover-text="Ik wil huren"><span>Huur</span></button>
+    </div>
+  </section>
         <!-- Search Section -->
         <section class="search-section">
           <div class="search-text">
