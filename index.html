@@ -21,24 +21,8 @@
       name="keywords"
       content="real estate, property, buy, rent, sell, homes"
     />
+    <!--CSS-Links-->
     <style>
-      /* Global Reset */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* Body Styling */
-      body {
-        font-family: "Roboto", sans-serif;
-        color: #000;
-        line-height: 1.6;
-        background-color: #fff;
-        overflow-x: hidden;
-      }
-
-      /* Header Container */
       .header-container {
         position: absolute;
         top: 0;
@@ -53,16 +37,15 @@
         align-items: center;
       }
 
-      /* Logo Styling */
       .logo {
-        width: 120px; /* Increase the width */
-        height: 120px; /* Increase the height */
-        transition: transform 0.3s ease-in-out; /* Add transition */
-        transform-origin: left; /* Set the transform origin to the left */
+        width: 120px;
+        height: 120px;
+        transition: transform 0.3s ease-in-out;
+        transform-origin: left;
       }
 
       .logo:hover {
-        transform: skewY(-10deg); /* Skew the logo on hover */
+        transform: skewY(-10deg);
       }
 
       .logo img {
@@ -71,14 +54,12 @@
         object-fit: cover;
       }
 
-      /* Header Title */
       header {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
       }
 
-      /* Navigation Menu */
       nav {
         display: flex;
         justify-content: flex-start;
@@ -101,8 +82,20 @@
         color: #ccc;
         border-bottom: solid 1px black;
       }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-      /* Main Section */
+      body {
+        font-family: "Roboto", sans-serif;
+        color: #000;
+        line-height: 1.6;
+        background-color: #fff;
+        overflow-x: hidden;
+      }
+
       main {
         position: relative;
         height: 105vh;
@@ -110,44 +103,67 @@
           no-repeat center center;
         background-size: cover;
         padding-top: 8rem;
-        z-index: 1; /* Ensure main section is behind the search section */
+        z-index: 1;
       }
 
-      /* About Section */
+      @media (max-width: 768px) {
+        .gallery-item {
+          flex: 1 1 calc(48% - 10px);
+          max-width: calc(48% - 10px);
+        }
+
+        .gallery-item img {
+          height: 250px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery {
+          gap: 5px;
+        }
+        .gallery-item {
+          flex: 1 1 100%;
+          max-width: 100%;
+        }
+
+        .gallery-item img {
+          height: 200px;
+        }
+      }
       .about {
-        font-size: 4vw; /* Increase font size here */
+        font-size: 4vw;
         color: #fff;
         padding: 1.5rem;
         border-radius: 8px;
         display: flex;
         flex-direction: column;
         max-width: 400px;
-        line-height: 1.4; /* Adjust line height for spacing */
-        position: absolute; /* Ensure it's positioned absolutely */
-        bottom: 3rem; /* Align to the bottom */
-        left: 2rem; /* Align to the left */
-        opacity: 0; /* Initially hidden */
-        transition: opacity 2.3s ease-in-out; /* Add transition for opacity */
+        line-height: 1.4;
+        position: absolute;
+        bottom: 3rem;
+        left: 2rem;
+        opacity: 0;
+        transition: opacity 2.3s ease-in-out;
       }
 
       .about p {
-        margin-bottom: 0.5rem; /* Add margin between sentences */
+        margin-bottom: 0.5rem;
         animation: fadeInLeft 2.3s ease-in-out;
         width: 100%;
       }
 
       .about span {
-        display: block; /* Ensures the second sentence starts on a new line */
-        margin-top: 0.5rem; /* Adds space between the first and second sentence */
-        text-indent: 0; /* Remove indentation */
-        margin-left: 5vw; /* Remove left margin */
+        display: block;
+        margin-top: 0.5rem;
+        text-indent: 0;
+        margin-left: 5vw;
         font-size: 4.5vw;
         animation: fadeInRight 2.3s ease-in-out;
       }
 
       .about::after {
         content: "";
-        display: none; /* Hide the line */
+        display: none;
       }
 
       @keyframes fadeInLeft {
@@ -171,165 +187,22 @@
           transform: translateX(0);
         }
       }
-
-      /* Appointment Section */
-      .appointment {
-        background-color: #d4a441;
-        padding: 4rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        text-align: left;
-        color: #fff;
-        /* margin-bottom: 5rem;*/
-      }
-
-      .appointment .left-side h2,
-      .appointment .left-side p,
-      .appointment form input,
-      .appointment form select,
-      .appointment form textarea,
-      .appointment form button {
-        color: #333;
-      }
-
-      .appointment .contact-icons a {
-        border: #333 1px solid;
-        color: #333;
-      }
-
-      .appointment form button {
-        background-color: #333;
-        color: #d4a441;
-        border: none;
-      }
-
-      .appointment form button:hover {
-        background-color: white;
-      }
-
-      /* Left Side (Text & Icons) */
-      .appointment .left-side {
-        flex: 1;
-        max-width: 45%;
-      }
-
-      .appointment .left-side h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .appointment .left-side p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-      }
-
-      .appointment .contact-icons {
-        display: flex;
-        justify-content: start;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
-      .appointment .contact-icons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        color: #d4a441;
-        border-radius: 5px;
-        font-size: 1.25rem;
-        text-decoration: none;
-      }
-
-      .appointment .contact-icons a img {
-        width: 20px; /* Adjust the width */
-        height: 20px; /* Adjust the height */
-      }
-
-      /* Right Side (Form) */
-      .appointment .right-side {
-        flex: 1;
-        max-width: 45%;
-      }
-
-      .appointment form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem 2rem;
-        max-width: 100%;
-        margin: 0;
-      }
-
-      .appointment form input,
-      .appointment form select,
-      .appointment form textarea {
-        width: 100%;
-        padding: 0.75rem;
-        font-size: 1rem;
-        border-bottom: 1px solid #fff;
-        background-color: transparent;
-        color: #fff;
-      }
-      .appointment form button {
-        width: 100%;
-        padding: 0.75rem;
-        font-size: 1rem;
-        background-color: transparent;
-        color: #fff;
-      }
-
-      .appointment form input,
-      .appointment form select,
-      .appointment form textarea {
-        border: none;
-        border-bottom: 1px solid #fff; /* Add white line under the elements */
-      }
-
-      .appointment form input::placeholder,
-      .appointment form textarea::placeholder {
-        color: #fff;
-      }
-
-      .appointment form button {
-        background-color: black;
-        color: #d4a441;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        grid-column: span 2;
-        border-radius: 20px;
-      }
-
-      .appointment form button:hover {
-        background-color: white;
-      }
-
-      .appointment form input:focus,
-      .appointment form select:focus,
-      .appointment form textarea:focus {
-        outline: none; /* Remove the gray box */
-      }
-
-      /* Gallery Section */
-
       .gallery {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         gap: 10px;
-        margin: 1rem auto; /* Adjusted top margin */
+        margin: 1rem auto;
         padding: 2rem;
       }
 
       .gallery h2 {
-        flex-basis: 100%; /* Take full width on a new line */
+        flex-basis: 100%;
         font-size: 2rem;
-        margin-bottom: 1rem; /* Add some spacing below the heading */
-        color: #000; /* Adjust color if needed */
-        text-align: center; /* Center-align the heading */
-        border-bottom: solid 2px #000; /* Add a border below the heading */
+        margin-bottom: 1rem;
+        color: #000;
+        text-align: center;
+        border-bottom: solid 2px #000;
       }
 
       .gallery-item {
@@ -379,194 +252,75 @@
       .gallery-title {
         margin-bottom: 1rem;
       }
-
-      /* Picture Section */
-      .picture {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      .buy-rent {
+        position: relative;
         width: 100%;
         height: 750px;
-        background: linear-gradient(to bottom, #f0f0f0, #d4a441);
-        margin-bottom: -5px; /* To blend with the section below */
+        overflow: hidden;
+        background: #303948;
       }
 
-      .picture img {
+      .buy-rent img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 0;
-      }
-
-      /* Footer Section */
-      footer {
-        background-color: #d4a441;
-        width: 100%;
-        color: black;
-        padding: 0.5rem;
-        position: relative;
-      }
-
-      .footer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem 1rem;
-      }
-
-      .left-footer {
-        font-size: 0.875rem;
-        color: black;
-      }
-
-      .right-footer {
-        font-size: 0.875rem;
-        color: black;
-        text-align: right;
-      }
-
-      .footer-line {
         position: absolute;
         top: 0;
         left: 0;
-        margin-left: 10px;
-        width: calc(100% - 20px);
-        right: 10px;
-        height: 1px;
-        background-color: black;
+        z-index: 1;
       }
 
-      /* Why Choose Us Section */
-      .why-choose-us {
-        background-color: #f8f8f8;
-        padding: 4rem 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .why-choose-us h2 {
-        font-size: 2.5rem;
-        color: #333;
-        margin-bottom: 2rem;
-        text-align: left;
-        position: relative;
-      }
-
-      .why-choose-us h2::after {
+      .buy-rent::after {
         content: "";
-        display: block;
-        width: 0;
-        height: 2px;
-        background: black;
-        transition: width 3s;
         position: absolute;
-        left: 0;
-        bottom: -10px; /* Adjust as needed */
-      }
-
-      .why-choose-us.scrolled h2::after {
-        width: 38.7%;
-      }
-
-      .why-choose-us .features {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-
-      .why-choose-us .feature {
-        position: relative;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid black;
-      }
-
-      .why-choose-us .feature h3 {
-        font-size: 1.5rem;
-        color: #333;
-        margin-bottom: 0.5rem;
-      }
-
-      .why-choose-us .feature p {
-        font-size: 1rem;
-        color: #555;
-        line-height: 1.8;
-      }
-
-      @media (min-width: 768px) {
-        .why-choose-us .features {
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: space-between;
-        }
-
-        .why-choose-us .feature {
-          flex: 1 1 calc(33% - 1rem);
-          max-width: calc(33% - 1rem);
-          flex-direction: column;
-        }
-
-        .why-choose-us .feature h3 {
-          margin-bottom: 0.5rem;
-        }
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .gallery-item {
-          flex: 1 1 calc(48% - 10px);
-          max-width: calc(48% - 10px);
-        }
-
-        .gallery-item img {
-          height: 250px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .gallery {
-          gap: 5px;
-        }
-        .gallery-item {
-          flex: 1 1 100%;
-          max-width: 100%;
-        }
-
-        .gallery-item img {
-          height: 200px;
-        }
-      }
-
-      .lazy {
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-
-      .lazy-loaded {
-        opacity: 1;
-      }
-
-      .preloader {
-        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #fff;
+        z-index: 2;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 60%,
+          #303948 100%
+        );
+        pointer-events: none;
+      }
+
+      .text {
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        z-index: 3;
+      }
+
+      .cylinder-button {
+        border-radius: 50px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #d4a441;
+        color: white;
+        cursor: pointer;
+        font-size: 25px;
+        margin: 5px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .cylinder-button:hover {
+        background-color: #b38a35;
+      }
+
+      .buy-rent-buttons {
         display: flex;
         justify-content: center;
-        align-items: center;
-        z-index: 9999;
+        gap: 1rem;
+        margin-top: 1rem;
       }
-      .preloader img {
-        width: 100px;
-        height: 100px;
-      }
-
-      .hidden {
-        display: none;
-      }
-
       .search-section {
         background: #303948;
         padding: 2rem;
@@ -650,53 +404,449 @@
         opacity: 1;
         transform: translateX(0);
       }
-
-      /* Buy-Rent Section */
-      .buy-rent {
-        position: relative;
-        width: 100%;
-        height: 750px;
-        overflow: hidden;
+      .why-choose-us {
+        padding: 4rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
       }
 
-      .buy-rent img {
+      .why-choose-us h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 2rem;
+        text-align: left;
+        position: relative;
+      }
+
+      .why-choose-us h2::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: black;
+        transition: width 3s;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+      }
+
+      .why-choose-us.scrolled h2::after {
+        width: 38.7%;
+      }
+
+      .why-choose-us .features {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .why-choose-us .feature {
+        position: relative;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid black;
+      }
+
+      .why-choose-us .feature h3 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+
+      .why-choose-us .feature p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.8;
+      }
+
+      @media (min-width: 768px) {
+        .why-choose-us .features {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        .why-choose-us .feature {
+          flex: 1 1 calc(33% - 1rem);
+          max-width: calc(33% - 1rem);
+          flex-direction: column;
+        }
+
+        .why-choose-us .feature h3 {
+          margin-bottom: 0.5rem;
+        }
+      }
+      .personeel-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 2rem;
+      }
+
+      .personeel-left {
+        flex: 1;
+        max-width: 20%;
+        text-align: center;
+      }
+
+      .personeel-left img {
         width: 100%;
-        height: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .personeel-left p {
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .personeel-right {
+        flex: 2;
+        max-width: 75%;
+      }
+
+      .personeel-paragraph {
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid black;
+        padding-bottom: 0.5rem;
+      }
+
+      .personeel-paragraph p {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: #555;
+      }
+      .locatie {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 2rem;
+      }
+
+      .locatiefoto1 {
+        flex: 1;
+        max-width: 20%;
+        height: auto;
+        text-align: center;
+        padding-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .locatiefoto1 img {
+        width: 100%;
+        height: 150px;
+        border-radius: 10px;
+        margin-bottom: 1em;
         object-fit: cover;
       }
 
-      .text {
-        color: white;
-        font-size: 2.5rem;
-        font-weight: bold;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      .locatiefoto {
+        flex: 1;
+        max-width: 20%;
+        height: auto;
+        text-align: center;
+        padding-left: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
-      .cylinder-button {
-        border-radius: 50px;
-        padding: 10px 20px;
+
+      .locatiefoto iframe {
+        width: 100%;
+        height: 300px;
         border: none;
-        background-color: #d4a441;
-        color: white;
-        cursor: pointer;
-        font-size: 25px;
-        margin: 5px;
-        text-decoration: none; /* Ensure links have no underline */
-        display: inline-block; /* Ensure links are displayed as buttons */
       }
 
-      .cylinder-button:hover {
-        background-color: #b38a35;
+      .locatietext {
+        flex: 2;
+        color: #555;
+        max-width: 40%;
+        text-align: center;
+        padding: 0 1rem;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
       }
-
-      .buy-rent-buttons {
+      .locatietext h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #000;
+      }
+      .locatie h3 {
+        margin-top: 1rem;
+        color: #000;
+      }
+      .picture {
         display: flex;
         justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 750px;
+        background: linear-gradient(to bottom, #f0f0f0, #d4a441);
+        margin-bottom: -5px;
+      }
+
+      .picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+      }
+      .appointment {
+        background-color: #d4a441;
+        padding: 4rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+        color: #fff;
+      }
+
+      .appointment .left-side h2,
+      .appointment .left-side p,
+      .appointment form input,
+      .appointment form select,
+      .appointment form textarea,
+      .appointment form button {
+        color: #333;
+      }
+
+      .appointment .contact-icons a {
+        border: #333 1px solid;
+        color: #333;
+      }
+
+      .appointment form button {
+        background-color: #333;
+        color: #d4a441;
+        border: none;
+      }
+
+      .appointment form button:hover {
+        background-color: white;
+      }
+
+      .appointment .left-side {
+        flex: 1;
+        max-width: 45%;
+      }
+
+      .appointment .left-side h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .appointment .left-side p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .appointment .contact-icons {
+        display: flex;
+        justify-content: start;
         gap: 1rem;
         margin-top: 1rem;
+      }
+
+      .appointment .contact-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        color: #d4a441;
+        border-radius: 5px;
+        font-size: 1.25rem;
+        text-decoration: none;
+      }
+
+      .appointment .contact-icons a img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .appointment .right-side {
+        flex: 1;
+        max-width: 45%;
+      }
+
+      .appointment form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem 2rem;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .appointment form input,
+      .appointment form select,
+      .appointment form textarea {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border-bottom: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+      }
+      .appointment form button {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        background-color: transparent;
+        color: #fff;
+      }
+
+      .appointment form input,
+      .appointment form select,
+      .appointment form textarea {
+        border: none;
+        border-bottom: 1px solid #fff;
+      }
+
+      .appointment form input::placeholder,
+      .appointment form textarea::placeholder {
+        color: #fff;
+      }
+
+      .appointment form button {
+        background-color: black;
+        color: #d4a441;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        grid-column: span 2;
+        border-radius: 20px;
+      }
+
+      .appointment form button:hover {
+        background-color: white;
+      }
+
+      .appointment form input:focus,
+      .appointment form select:focus,
+      .appointment form textarea:focus {
+        outline: none;
+      }
+      footer {
+        background-color: #d4a441;
+        width: 100%;
+        color: black;
+        padding: 0.5rem;
+        position: relative;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+      }
+
+      .left-footer {
+        font-size: 0.875rem;
+        color: black;
+      }
+
+      .right-footer {
+        font-size: 0.875rem;
+        color: black;
+        text-align: right;
+      }
+
+      .footer-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: 10px;
+        width: calc(100% - 20px);
+        right: 10px;
+        height: 1px;
+        background-color: black;
+      }
+      .lazy {
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .lazy-loaded {
+        opacity: 1;
+      }
+
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      .preloader img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .recensie {
+        background-color: darkcyan;
+        padding: 4rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .recensie h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 2rem;
+        flex: 1;
+        text-align: right;
+      }
+
+      .recensie form {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex: 1;
+      }
+
+      .recensie form input,
+      .recensie form textarea {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        font-size: 1rem;
+      }
+
+      .recensie form button {
+        padding: 1rem;
+        background-color: #d4a441;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      .recensie form button:hover {
+        background-color: #b38a35;
+      }
+      .recensie form input:focus,
+      .recensie form textarea:focus {
+        outline: none;
+        border: 3px solid black;
       }
     </style>
   </head>
@@ -707,7 +857,6 @@
         alt="Loading..."
       />
     </div>
-    <!-- Header Container -->
     <div class="header-container">
       <div class="logo">
         <img
@@ -726,7 +875,6 @@
       </nav>
     </div>
 
-    <!-- Main Section -->
     <main id="bovenstedeel">
       <div class="about">
         <p>
@@ -736,37 +884,36 @@
         </p>
       </div>
     </main>
-    <!-- Gallery Section -->
     <section class="gallery">
       <h2>Te Koop</h2>
       <div class="gallery-item">
-        <img src="./pictures/Gallery/fotoExtr3.jpg" alt="Modern Designs" />
+        <img src="./pictures/gallery/fotoExtr3.jpg" alt="Modern Designs" />
         <p>Modern Designs</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/roberto-nickson-rEJxpBskj3Q-unsplash.jpg"
+          src="./pictures/gallery/roberto-nickson-rEJxpBskj3Q-unsplash.jpg"
           alt="State-of-the-Art Homes"
         />
         <p>State-of-the-Art Homes</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/rhema-kallianpur-jbJ-_hw2yag-unsplash.jpg"
+          src="./pictures/gallery/rhema-kallianpur-jbJ-_hw2yag-unsplash.jpg"
           alt="Elegant Interiors"
         />
         <p>Elegant Interiors</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/armin-djuhic-mcL2f-J74GY-unsplash.jpg"
+          src="./pictures/gallery/armin-djuhic-mcL2f-J74GY-unsplash.jpg"
           alt="Sustainable Living"
         />
         <p>Sustainable Living</p>
       </div>
       <div class="gallery-item">
         <img
-          src="./pictures/Gallery/andrea-davis-zOPRKaYLSdE-unsplash.jpg"
+          src="./pictures/gallery/andrea-davis-zOPRKaYLSdE-unsplash.jpg"
           alt="Innovative Spaces"
         />
         <p>Innovative Spaces</p>
@@ -810,7 +957,6 @@
         <p>Innovative Spaces</p>
       </div>
     </section>
-    <!-- Buy-Rent-Section -->
     <section class="buy-rent">
       <img
         src="./pictures/Buy-Rent/luca-bravo-_QdFx92MO2U-unsplash.jpg"
@@ -828,7 +974,6 @@
         </div>
       </div>
     </section>
-    <!-- Search Section -->
     <section class="search-section">
       <div class="search-text">
         <h2>Wonen begint hier</h2>
@@ -864,7 +1009,6 @@
         </div>
       </div>
     </section>
-    <!-- Why Choose Us Section -->
     <section class="why-choose-us">
       <h2>Waarom Voor Ons Kiezen?</h2>
       <div class="features">
@@ -902,12 +1046,94 @@
         </div>
       </div>
     </section>
+    <section class="personeel">
+      <div class="personeel-container">
+        <div class="personeel-left">
+          <img src="./pictures/foto/IMG_0100.jpg" alt="Person" />
+          <p>Conrad Droogendijk</p>
+        </div>
+        <div class="personeel-right">
+          <div class="personeel-paragraph">
+            <p>
+              Met meer dan 15 jaar ervaring in de vastgoedsector is Conrad
+              Droogendijk een vaste waarde binnen ons team. Zijn uitgebreide
+              kennis van de woningmarkt en zijn passie voor vastgoed maken hem
+              de ideale partner bij het kopen, verkopen of verhuren van een
+              pand. Conrad staat bekend om zijn persoonlijke aanpak en zijn
+              vermogen om complexe vastgoedvraagstukken helder en efficiënt op
+              te lossen.
+            </p>
+          </div>
+          <div class="personeel-paragraph">
+            <p>
+              Conrad is niet alleen een expert in het begeleiden van
+              vastgoedtransacties, maar ook een uitstekende onderhandelaar. Hij
+              weet precies hoe hij de beste voorwaarden voor zijn klanten kan
+              realiseren, terwijl hij oog houdt voor wederzijds respect en
+              vertrouwen. Zijn netwerk van betrouwbare partners, zoals
+              notarissen, taxateurs en aannemers, maakt dat elk dossier vlot en
+              professioneel afgehandeld wordt.
+            </p>
+          </div>
+          <div class="personeel-paragraph">
+            <p>
+              Wat Conrad onderscheidt, is zijn oprechte betrokkenheid bij zijn
+              klanten. Of u nu een starter bent op de woningmarkt of een ervaren
+              belegger, Conrad luistert aandachtig naar uw wensen en biedt
+              advies op maat. Hij streeft ernaar om van elke samenwerking een
+              succes te maken en klanten een zorgeloze ervaring te bieden in hun
+              vastgoedtraject.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="locatie">
+      <div class="locatiefoto1">
+        <img src="./pictures/visualisatie_2.jpg" alt="Office" />
+        <img src="./pictures/visualisatie_1.jpg" alt="Office2" />
+      </div>
+      <div class="locatietext">
+        <h2>Onze Locatie</h2>
+        <p>
+          Ons kantoor is gevestigd in het hart van de stad, waar we klaar staan
+          om je te helpen met al je vastgoedbehoeften. Of je nu op zoek bent
+          naar een nieuwe woning, je huidige woning wilt verkopen of advies
+          nodig hebt over investeren in vastgoed, ons team van experts staat
+          voor je klaar. Neem vandaag nog contact met ons op om te ontdekken hoe
+          we je kunnen helpen!
+        </p>
+        <h3>9112 Sinaai, Dries 11</h3>
+      </div>
+      <div class="locatiefoto">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2502.4028865896894!2d4.040959776086363!3d51.15636143628789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c385836446564b%3A0xbb29c38bf0c4fb5e!2sDries%2011%2C%209112%20Sint-Niklaas!5e0!3m2!1snl!2sbe!4v1734555406829!5m2!1snl!2sbe"
+          width="700"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+    <section class="picture">
+      <img src="./pictures/spacejoy-9M66C_w_ToM-unsplash.jpg" alt="Picture" />
+    </section>
+    <section class="recensie">
+      <form>
+        <input type="text" name="name" placeholder="Naam" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="review" rows="5" placeholder="Uw recensie" required></textarea>
+        <button type="submit">Verzenden</button>
+      </form>
+      <h2>Laat een Recensie Achter</h2>
+    </section>
 
     <section class="picture">
       <img src="./pictures/spacejoy-KSfe2Z4REEM-unsplash.jpg" alt="Picture" />
     </section>
 
-    <!-- Appointment Section -->
     <section class="appointment" id="appointment">
       <div class="left-side">
         <h2>MAAK EEN AFSPRAAK</h2>
@@ -928,7 +1154,6 @@
         </form>
       </div>
     </section>
-    <!-- Footer Section -->
     <footer>
       <div class="footer-line"></div>
       <div class="footer-content">
@@ -939,7 +1164,7 @@
     <script>
       window.addEventListener("load", function () {
         document.querySelector(".preloader").classList.add("hidden");
-        document.querySelector(".about").style.opacity = "1"; // Show the about section once the page is loaded
+        document.querySelector(".about").style.opacity = "1";
       });
 
       window.addEventListener("scroll", function () {
