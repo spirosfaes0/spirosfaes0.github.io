@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Te Koop - Immoco</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
+      * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -20,196 +23,201 @@
         background-color: #fff;
         overflow-x: hidden;
       }
-        .header-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px; /* Smaller height */
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: 2;
-            padding: 0.5rem 2rem; /* Adjusted padding */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .header-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px; /* Smaller height */
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 2;
+        padding: 0.5rem 2rem; /* Adjusted padding */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .logo {
-            width: 100px; /* Smaller width */
-            height: 100px; /* Smaller height */
-            transition: transform 0.3s ease-in-out;
-            transform-origin: left;
-        }
+      .logo {
+        width: 100px; /* Smaller width */
+        height: 100px; /* Smaller height */
+        transition: transform 0.3s ease-in-out;
+        transform-origin: left;
+      }
 
-        .logo:hover {
-            transform: skewY(-10deg);
-        }
+      .logo:hover {
+        transform: skewY(-10deg);
+      }
 
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-        header {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        #header{
-            margin-bottom: 50px;
-        }
+      header {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      #header {
+        margin-bottom: 50px;
+      }
 
-        nav {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 2rem;
-        }
+      nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2rem;
+      }
 
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
+      nav a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
 
-        nav a:last-child {
-            color: black;
-            border-bottom: solid 1px black;
-        }
+      nav a:last-child {
+        color: black;
+        border-bottom: solid 1px black;
+      }
 
-        nav a:hover {
-            color: #ccc;
-            border-bottom: solid 1px black;
-        }
+      nav a:hover {
+        color: #ccc;
+        border-bottom: solid 1px black;
+      }
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 2rem 0;
-            padding-top: 80px; /* Adjust for header */
-        }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 2rem 0;
+        padding-top: 80px; /* Adjust for header */
+      }
 
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+      .header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
 
-        .property-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: space-between;
-        }
+      .property-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: space-between;
+      }
 
+      .property-item {
+        flex: 1 1 calc(33% - 2rem);
+        max-width: calc(33% - 2rem);
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .property-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .property-item:hover {
+        transform: scale(1.05);
+      }
+
+      .property-info {
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .property-info h2 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+
+      .property-info p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 1rem;
+      }
+
+      .property-info .price {
+        font-size: 1.2rem;
+        color: #d4a441;
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
         .property-item {
-            flex: 1 1 calc(33% - 2rem);
-            max-width: calc(33% - 2rem);
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
+          flex: 1 1 calc(48% - 2rem);
+          max-width: calc(48% - 2rem);
         }
+      }
 
-        .property-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
+      @media (max-width: 480px) {
+        .property-item {
+          flex: 1 1 100%;
+          max-width: 100%;
         }
+      }
 
-        .property-item:hover {
-            transform: scale(1.05);
-        }
+      .zoekbalk {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
-        .property-info {
-            padding: 1rem;
-            text-align: center;
-        }
+      .zoekbalk form {
+        display: flex;
+        gap: 1rem;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Light background for better readability */
+        padding: 1rem;
+        border-radius: 10px;
+      }
 
-        .property-info h2 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
+      .zoekbalk input,
+      .zoekbalk select {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+      }
 
-        .property-info p {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 1rem;
-        }
+      .zoekbalk button {
+        padding: 0.5rem 1rem;
+        background-color: #d4a441;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
 
-        .property-info .price {
-            font-size: 1.2rem;
-            color: #d4a441;
-            font-weight: bold;
-        }
+      .zoekbalk button:hover {
+        background-color: #b38a35;
+      }
 
-        @media (max-width: 768px) {
-            .property-item {
-                flex: 1 1 calc(48% - 2rem);
-                max-width: calc(48% - 2rem);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .property-item {
-                flex: 1 1 100%;
-                max-width: 100%;
-            }
-        }
-
-        .zoekbalk {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .zoekbalk form {
-            display: flex;
-            gap: 1rem;
-            background-color: rgba(255, 255, 255, 0.8); /* Light background for better readability */
-            padding: 1rem;
-            border-radius: 10px;
-        }
-
-        .zoekbalk input,
-        .zoekbalk select {
-            padding: 0.5rem;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .zoekbalk button {
-            padding: 0.5rem 1rem;
-            background-color: #d4a441;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .zoekbalk button:hover {
-            background-color: #b38a35;
-        }
-
-        main {
-            background-image: url('./pictures/Buy-Rent/nirzar-pangarkar-Y7y7fe8hrh0-unsplash\ 2.jpg');
-            background-size: cover; /* Ensure the background image covers the entire section */
-            background-position: center; /* Center the background image */
-            padding: 2rem 0;
-            height: 500px;
-            width: 100%;
-            position: relative; /* Ensure the zoekbalk is positioned relative to the main section */
-        }
-        footer {
+      main {
+        background-image: url("./pictures/Buy-Rent/nirzar-pangarkar-Y7y7fe8hrh0-unsplash\ 2.jpg");
+        background-size: cover; /* Ensure the background image covers the entire section */
+        background-position: center; /* Center the background image */
+        padding: 2rem 0;
+        height: 500px;
+        width: 100%;
+        position: relative; /* Ensure the zoekbalk is positioned relative to the main section */
+      }
+      footer {
         width: 100%;
         color: black;
         padding: 0.5rem;
@@ -245,307 +253,244 @@
         background-color: black;
       }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <section class="header">
-            <div class="header-container">
-                <div class="logo">
-                    <img src="./pictures/Screenshot_2024-12-13_at_16.40.44-removebg-preview.png" alt="Logo">
-                </div>
-                <nav>
-                    <a href="index.html#appointment" aria-label="Home">Contact</a>
-                    <a href="teKoop.html" aria-label="Te Koop">Te Koop</a>
-                    <a href="#" aria-label="Te Huur">Te Huur</a>
-                    <a href="index.html" aria-label="Contact">Home</a>
-                </nav>
-            </div>
-        </section>  
-        <section class="zoekbalk">
-            <form id="search-form">
-                <input type="text" placeholder="Plaats" />
-                <select id="type-select">
-                    <option value="">Type gebouw</option>
-                    <option value="appartement">Appartement</option>
-                    <option value="huis">Huis</option>
-                    <option value="villa">Villa</option>
-                    <option value="boerderij">Boerderij</option>
-                </select>
-                <select id="price-select">
-                    <option value="">Prijs</option>
-                    <option value="0-100000">0 - 100,000</option>
-                    <option value="100000-200000">100,000 - 200,000</option>
-                    <option value="200000-300000">200,000 - 300,000</option>
-                    <option value="300000+">300,000+</option>
-                </select>
-                <button type="submit">Zoeken</button>
-            </form>
-        </section>
+      <section class="header">
+        <div class="header-container">
+          <div class="logo">
+            <img
+              src="./pictures/Screenshot_2024-12-13_at_16.40.44-removebg-preview.png"
+              alt="Logo"
+            />
+          </div>
+          <nav>
+            <a href="index.html#appointment" aria-label="Home">Contact</a>
+            <a href="teKoop.html" aria-label="Te Koop">Te Koop</a>
+            <a href="#" aria-label="Te Huur">Te Huur</a>
+            <a href="index.html" aria-label="Contact">Home</a>
+          </nav>
+        </div>
+      </section>
+      <section class="zoekbalk">
+        <form id="search-form">
+          <input type="text" placeholder="Plaats" />
+          <select id="type-select">
+            <option value="">Type gebouw</option>
+            <option value="appartement">Appartement</option>
+            <option value="huis">Huis</option>
+            <option value="villa">Villa</option>
+            <option value="boerderij">Boerderij</option>
+          </select>
+          <select id="price-select">
+            <option value="">Prijs</option>
+            <option value="0-100000">0 - 100,000</option>
+            <option value="100000-200000">100,000 - 200,000</option>
+            <option value="200000-300000">200,000 - 300,000</option>
+            <option value="300000+">300,000+</option>
+          </select>
+          <button type="submit">Zoeken</button>
+        </form>
+      </section>
     </main>
     <div class="container">
-        <div class="property-list" id="property-list">
-            <div class="property-item" data-type="appartement" data-price="250000">
-                <img src="./pictures/property1.jpg" alt="Property 1">
-                <div class="property-info">
-                    <h2>Modern Appartement</h2>
-                    <p>2 slaapkamers, 1 badkamer, 100m²</p>
-                    <p class="price">€250,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="huis" data-price="450000">
-                <img src="./pictures/property2.jpg" alt="Property 2">
-                <div class="property-info">
-                    <h2>Gezinswoning</h2>
-                    <p>4 slaapkamers, 2 badkamers, 200m²</p>
-                    <p class="price">€450,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="villa" data-price="750000">
-                <img src="./pictures/property3.jpg" alt="Property 3">
-                <div class="property-info">
-                    <h2>Landhuis</h2>
-                    <p>5 slaapkamers, 3 badkamers, 300m²</p>
-                    <p class="price">€750,000</p>
-                </div>
-            </div>
-            <!-- Add more properties as needed -->
+      <div class="property-list" id="property-list">
+        <div class="property-item" data-type="appartement" data-price="250000">
+          <img src="./pictures/tekoopFotos/brian-babb-XbwHrt87mQ0-unsplash.jpg" alt="Property 1" />
+          <div class="property-info">
+            <h2>Modern Appartement</h2>
+            <p>2 slaapkamers, 1 badkamer, 100m²</p>
+            <p class="price">€250,000</p>
+          </div>
         </div>
+        <div class="property-item" data-type="huis" data-price="450000">
+          <img src="./pictures/tekoopFotos/dillon-kydd-pvdx8c6Y5BY-unsplash.jpg" alt="Property 2" />
+          <div class="property-info">
+            <h2>Gezinswoning</h2>
+            <p>4 slaapkamers, 2 badkamers, 200m²</p>
+            <p class="price">€450,000</p>
+          </div>
+        </div>
+        <div class="property-item" data-type="villa" data-price="750000">
+          <img src="./pictures/tekoopFotos/dillon-kydd-XGvwt544g8k-unsplash.jpg" alt="Property 3" />
+          <div class="property-info">
+            <h2>Landhuis</h2>
+            <p>5 slaapkamers, 3 badkamers, 300m²</p>
+            <p class="price">€750,000</p>
+          </div>
+        </div>
+        <!-- Add more properties as needed -->
+      </div>
     </div>
     <div class="container">
-        <div class="property-list">
-            <div class="property-item" data-type="stadswoning" data-price="350000">
-                <img src="./pictures/property4.jpg" alt="Property 4">
-                <div class="property-info">
-                    <h2>Stadswoning</h2>
-                    <p>3 slaapkamers, 2 badkamers, 150m²</p>
-                    <p class="price">€350,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="villa" data-price="1200000">
-                <img src="./pictures/property5.jpg" alt="Property 5">
-                <div class="property-info">
-                    <h2>Villa</h2>
-                    <p>6 slaapkamers, 4 badkamers, 400m²</p>
-                    <p class="price">€1,200,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="boerderij" data-price="600000">
-                <img src="./pictures/property6.jpg" alt="Property 6">
-                <div class="property-info">
-                    <h2>Boerderij</h2>
-                    <p>4 slaapkamers, 2 badkamers, 250m²</p>
-                    <p class="price">€600,000</p>
-                </div>
-            </div>
-            <!-- Add more properties as needed -->
+      <div class="property-list">
+        <div class="property-item" data-type="stadswoning" data-price="350000">
+          <img src="./pictures/tekoopFotos/ian-macdonald-W8z6aiwfi1E-unsplash.jpg" alt="Property 4" />
+          <div class="property-info">
+            <h2>Stadswoning</h2>
+            <p>3 slaapkamers, 2 badkamers, 150m²</p>
+            <p class="price">€350,000</p>
+          </div>
         </div>
+        <div class="property-item" data-type="villa" data-price="1200000">
+          <img src="./pictures/tekoopFotos/ronnie-george-9gGvNWBeOq4-unsplash.jpg" alt="Property 5" />
+          <div class="property-info">
+            <h2>Villa</h2>
+            <p>6 slaapkamers, 4 badkamers, 400m²</p>
+            <p class="price">€1,200,000</p>
+          </div>
+        </div>
+        <div class="property-item" data-type="boerderij" data-price="600000">
+          <img src="./pictures/tekoopFotos/ronnie-george-z11gbBo13ro-unsplash.jpg" alt="Property 6" />
+          <div class="property-info">
+            <h2>Boerderij</h2>
+            <p>4 slaapkamers, 2 badkamers, 250m²</p>
+            <p class="price">€600,000</p>
+          </div>
+        </div>
+        <!-- Add more properties as needed -->
+      </div>
     </div>
     <div class="container">
-        <div class="property-list">
-            <div class="property-item" data-type="loft" data-price="200000">
-                <img src="./pictures/property7.jpg" alt="Property 7">
-                <div class="property-info">
-                    <h2>Loft</h2>
-                    <p>1 slaapkamer, 1 badkamer, 80m²</p>
-                    <p class="price">€200,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="rijtjeshuis" data-price="300000">
-                <img src="./pictures/property8.jpg" alt="Property 8">
-                <div class="property-info">
-                    <h2>Rijtjeshuis</h2>
-                    <p>3 slaapkamers, 1 badkamer, 120m²</p>
-                    <p class="price">€300,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="vakantiehuis" data-price="275000">
-                <img src="./pictures/property9.jpg" alt="Property 9">
-                <div class="property-info">
-                    <h2>Vakantiehuis</h2>
-                    <p>2 slaapkamers, 1 badkamer, 90m²</p>
-                    <p class="price">€275,000</p>
-                </div>
-            </div>
-            <!-- Add more properties as needed -->
+      <div class="property-list">
+        <div class="property-item" data-type="loft" data-price="200000">
+          <img src="./pictures/tekoopFotos/spacejoy-9M66C_w_ToM-unsplash.jpg" alt="Property 7" />
+          <div class="property-info">
+            <h2>Loft</h2>
+            <p>1 slaapkamer, 1 badkamer, 80m²</p>
+            <p class="price">€200,000</p>
+          </div>
         </div>
+        <div class="property-item" data-type="rijtjeshuis" data-price="300000">
+          <img src="./pictures/tekoopFotos/zac-gudakov-wwqZ8CM21gg-unsplash.jpg" alt="Property 8" />
+          <div class="property-info">
+            <h2>Rijtjeshuis</h2>
+            <p>3 slaapkamers, 1 badkamer, 120m²</p>
+            <p class="price">€300,000</p>
+          </div>
+        </div>
+        <div class="property-item" data-type="vakantiehuis" data-price="275000">
+          <img src="./pictures/tekoopFotos/pexels-binyaminmellish-106399.jpg" alt="Property 9" />
+          <div class="property-info">
+            <h2>Vakantiehuis</h2>
+            <p>2 slaapkamers, 1 badkamer, 90m²</p>
+            <p class="price">€275,000</p>
+          </div>
+        </div>
+        <!-- Add more properties as needed -->
+      </div>
     </div>
     <div class="container">
-        <div class="property-list">
-            <div class="property-item" data-type="studio" data-price="150000">
-                <img src="./pictures/property10.jpg" alt="Property 10">
-                <div class="property-info">
-                    <h2>Studio</h2>
-                    <p>1 slaapkamer, 1 badkamer, 50m²</p>
-                    <p class="price">€150,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="herenhuis" data-price="900000">
-                <img src="./pictures/property11.jpg" alt="Property 11">
-                <div class="property-info">
-                    <h2>Herenhuis</h2>
-                    <p>5 slaapkamers, 3 badkamers, 350m²</p>
-                    <p class="price">€900,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="landgoed" data-price="2500000">
-                <img src="./pictures/property12.jpg" alt="Property 12">
-                <div class="property-info">
-                    <h2>Landgoed</h2>
-                    <p>8 slaapkamers, 6 badkamers, 500m²</p>
-                    <p class="price">€2,500,000</p>
-                </div>
-            </div>
-            <!-- Add more properties as needed -->
+      <div class="property-list">
+        <div class="property-item" data-type="studio" data-price="150000">
+          <img src="./pictures/tekoopFotos/pexels-binyaminmellish-1396132.jpg" alt="Property 10" />
+          <div class="property-info">
+            <h2>Studio</h2>
+            <p>1 slaapkamer, 1 badkamer, 50m²</p>
+            <p class="price">€150,000</p>
+          </div>
         </div>
+        <div class="property-item" data-type="herenhuis" data-price="900000">
+          <img src="./pictures/tekoopFotos/pexels-pixabay-280222.jpg" alt="Property 11" />
+          <div class="property-info">
+            <h2>Herenhuis</h2>
+            <p>5 slaapkamers, 3 badkamers, 350m²</p>
+            <p class="price">€900,000</p>
+          </div>
+        </div>
+        <div class="property-item" data-type="landgoed" data-price="2500000">
+          <img src="./pictures/tekoopFotos/pexels-pixabay-259588.jpg" alt="Property 12" />
+          <div class="property-info">
+            <h2>Landgoed</h2>
+            <p>8 slaapkamers, 6 badkamers, 500m²</p>
+            <p class="price">€2,500,000</p>
+          </div>
+        </div>
+        <!-- Add more properties as needed -->
+      </div>
     </div>
     <div class="container">
-        <div class="property-list">
-            <div class="property-item" data-type="bungalow" data-price="500000">
-                <img src="./pictures/property13.jpg" alt="Property 13">
-                <div class="property-info">
-                    <h2>Bungalow</h2>
-                    <p>3 slaapkamers, 2 badkamers, 180m²</p>
-                    <p class="price">€500,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="penthouse" data-price="1500000">
-                <img src="./pictures/property14.jpg" alt="Property 14">
-                <div class="property-info">
-                    <h2>Penthouse</h2>
-                    <p>4 slaapkamers, 3 badkamers, 350m²</p>
-                    <p class="price">€1,500,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="cottage" data-price="400000">
-                <img src="./pictures/property15.jpg" alt="Property 15">
-                <div class="property-info">
-                    <h2>Cottage</h2>
-                    <p>2 slaapkamers, 1 badkamer, 120m²</p>
-                    <p class="price">€400,000</p>
-                </div>
-            </div>
+      <div class="property-list">
+        <div class="property-item" data-type="bungalow" data-price="500000">
+          <img src="./pictures/tekoopFotos/pexels-pixabay-280222.jpg" alt="Property 13" />
+          <div class="property-info">
+            <h2>Bungalow</h2>
+            <p>3 slaapkamers, 2 badkamers, 180m²</p>
+            <p class="price">€500,000</p>
+          </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="property-list">
-            <div class="property-item" data-type="mansion" data-price="3000000">
-                <img src="./pictures/property16.jpg" alt="Property 16">
-                <div class="property-info">
-                    <h2>Mansion</h2>
-                    <p>8 slaapkamers, 7 badkamers, 600m²</p>
-                    <p class="price">€3,000,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="townhouse" data-price="700000">
-                <img src="./pictures/property17.jpg" alt="Property 17">
-                <div class="property-info">
-                    <h2>Townhouse</h2>
-                    <p>4 slaapkamers, 3 badkamers, 220m²</p>
-                    <p class="price">€700,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="duplex" data-price="550000">
-                <img src="./pictures/property18.jpg" alt="Property 18">
-                <div class="property-info">
-                    <h2>Duplex</h2>
-                    <p>3 slaapkamers, 2 badkamers, 200m²</p>
-                    <p class="price">€550,000</p>
-                </div>
-            </div>
+        <div class="property-item" data-type="penthouse" data-price="1500000">
+          <img src="./pictures/tekoopFotos/pexels-pixabay-280229.jpg" alt="Property 14" />
+          <div class="property-info">
+            <h2>Penthouse</h2>
+            <p>4 slaapkamers, 3 badkamers, 350m²</p>
+            <p class="price">€1,500,000</p>
+          </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="property-list">
-            <div class="property-item" data-type="villa" data-price="800000">
-                <img src="./pictures/property19.jpg" alt="Property 19">
-                <div class="property-info">
-                    <h2>Villa</h2>
-                    <p>5 slaapkamers, 4 badkamers, 400m²</p>
-                    <p class="price">€800,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="farmhouse" data-price="450000">
-                <img src="./pictures/property20.jpg" alt="Property 20">
-                <div class="property-info">
-                    <h2>Farmhouse</h2>
-                    <p>4 slaapkamers, 2 badkamers, 300m²</p>
-                    <p class="price">€450,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="chalet" data-price="600000">
-                <img src="./pictures/property21.jpg" alt="Property 21">
-                <div class="property-info">
-                    <h2>Chalet</h2>
-                    <p>3 slaapkamers, 2 badkamers, 200m²</p>
-                    <p class="price">€600,000</p>
-                </div>
-            </div>
+        <div class="property-item" data-type="loft" data-price="200000">
+          <img src="./pictures/tekoopFotos/spacejoy-9M66C_w_ToM-unsplash.jpg" alt="Property 7" />
+          <div class="property-info">
+            <h2>Loft</h2>
+            <p>1 slaapkamer, 1 badkamer, 80m²</p>
+            <p class="price">€200,000</p>
+          </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="property-list">
-            <div class="property-item" data-type="studio" data-price="200000">
-                <img src="./pictures/property22.jpg" alt="Property 22">
-                <div class="property-info">
-                    <h2>Studio</h2>
-                    <p>1 slaapkamer, 1 badkamer, 60m²</p>
-                    <p class="price">€200,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="bungalow" data-price="350000">
-                <img src="./pictures/property23.jpg" alt="Property 23">
-                <div class="property-info">
-                    <h2>Bungalow</h2>
-                    <p>3 slaapkamers, 2 badkamers, 150m²</p>
-                    <p class="price">€350,000</p>
-                </div>
-            </div>
-            <div class="property-item" data-type="penthouse" data-price="1000000">
-                <img src="./pictures/property24.jpg" alt="Property 24">
-                <div class="property-info">
-                    <h2>Penthouse</h2>
-                    <p>4 slaapkamers, 3 badkamers, 300m²</p>
-                    <p class="price">€1,000,000</p>
-                </div>
-            </div>
-        </div>
-    </div>
+      </div>
+    </div>     
     <footer>
-        <div class="footer-line"></div>
-        <div class="footer-content">
-          <div class="left-footer">&copy; 2024 Immoco . All rights reserved.</div>
-          <div class="right-footer">Privacy Policy | Terms of Service</div>
-        </div>
-      </footer>
+      <div class="footer-line"></div>
+      <div class="footer-content">
+        <div class="left-footer">&copy; 2024 Immoco . All rights reserved.</div>
+        <div class="right-footer">Privacy Policy | Terms of Service</div>
+      </div>
+    </footer>
     <script>
-        document.getElementById('search-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const type = document.getElementById('type-select').value;
-            const price = document.getElementById('price-select').value;
-            const properties = document.querySelectorAll('.property-item');
-            const propertyList = document.getElementById('property-list');
+      document
+        .getElementById("search-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const type = document.getElementById("type-select").value;
+          const price = document.getElementById("price-select").value;
+          const properties = document.querySelectorAll(".property-item");
+          const propertyList = document.getElementById("property-list");
 
-            // Clear the property list
-            propertyList.innerHTML = '';
+          // Clear the property list
+          propertyList.innerHTML = "";
 
-            properties.forEach(property => {
-                const propertyType = property.getAttribute('data-type');
-                const propertyPrice = parseInt(property.getAttribute('data-price'));
+          properties.forEach((property) => {
+            const propertyType = property.getAttribute("data-type");
+            const propertyPrice = parseInt(property.getAttribute("data-price"));
 
-                let priceMatch = false;
-                if (price === "0-100000" && propertyPrice <= 100000) priceMatch = true;
-                if (price === "100000-200000" && propertyPrice > 100000 && propertyPrice <= 200000) priceMatch = true;
-                if (price === "200000-300000" && propertyPrice > 200000 && propertyPrice <= 300000) priceMatch = true;
-                if (price === "300000+" && propertyPrice > 300000) priceMatch = true;
+            let priceMatch = false;
+            if (price === "0-100000" && propertyPrice <= 100000)
+              priceMatch = true;
+            if (
+              price === "100000-200000" &&
+              propertyPrice > 100000 &&
+              propertyPrice <= 200000
+            )
+              priceMatch = true;
+            if (
+              price === "200000-300000" &&
+              propertyPrice > 200000 &&
+              propertyPrice <= 300000
+            )
+              priceMatch = true;
+            if (price === "300000+" && propertyPrice > 300000)
+              priceMatch = true;
 
-                if ((type === "" || propertyType === type) && (price === "" || priceMatch)) {
-                    property.style.display = "block";
-                    propertyList.appendChild(property);
-                } else {
-                    property.style.display = "none";
-                }
-            });
+            if (
+              (type === "" || propertyType === type) &&
+              (price === "" || priceMatch)
+            ) {
+              property.style.display = "block";
+              propertyList.appendChild(property);
+            } else {
+              property.style.display = "none";
+            }
+          });
         });
     </script>
-</body>
+  </body>
 </html>
+
